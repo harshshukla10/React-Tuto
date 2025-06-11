@@ -1,0 +1,7 @@
+.App-header{
+    background-color: aqua;
+    color: blueviolet;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
