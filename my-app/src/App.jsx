@@ -1,4 +1,5 @@
-import Login from './usercomponent.jsx'
+import {Fruit,Orange,Apple}  from './fruitInfo.jsx'
+
 
 function App() {
   return (
@@ -8,7 +9,9 @@ function App() {
           <h1>
             Importing and exporting Component !!
           </h1>
-          <Login></Login>
+            <Fruit></Fruit>
+            <Apple></Apple>
+            <Orange></Orange>
        </div>
     
       </header>
