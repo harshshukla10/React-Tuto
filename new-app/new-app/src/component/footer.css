@@ -1,0 +1,12 @@
+.footer {
+    position: fixed;       /* Keep it stuck at the bottom */
+    bottom: 0;             /* Align to bottom */
+    left: 0;
+    width: 100%;           /* Full width */
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    z-index: 1000;
+  }
+  
