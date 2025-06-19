@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      padding: 20px;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="email"], input[type="password"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .gender input {
+      width: auto;
+      margin-top: 0;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 20px;
+      background: #28a745;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<form onsubmit="return validateForm()">
+  <h2 style="text-align:center;">Register</h2>
+
+  <label for="name">Name</label>
+  <input type="text" id="name" required>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" required>
+  <div class="error" id="emailError"></div>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" required>
+  <div class="error" id="passLengthError"></div>
+
+  <label for="confirm">Confirm Password</label>
+  <input type="password" id="confirm" required>
+  <div class="error" id="passMatchError"></div>
+
+  <label for="address">Address</label>
+  <textarea id="address" rows="3" required></textarea>
+
+  <label>Gender</label>
+  <div class="gender">
+    <input type="radio" name="gender" value="Male" required> Male
+    <input type="radio" name="gender" value="Female" required> Female
+  </div>
+
+  <label>
+    <input type="checkbox" id="terms" required> I agree to the terms and conditions
+  </label>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  function validateForm() {
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("password").value;
+    let confirm = document.getElementById("confirm").value;
+    let valid = true;
+
+   
+    document.getElementById("emailError").innerText = "";
+    document.getElementById("passMatchError").innerText = "";
+    document.getElementById("passLengthError").innerText = "";
+
+   
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      document.getElementById("emailError").innerText = " Invalid email format.";
+      valid = false;
+    }
+
+
+    if (pass.length < 6) {
+      document.getElementById("passLengthError").innerText = " Password must be at least 6 characters.";
+      valid = false;
+    }
+
+
+    if (pass !== confirm) {
+      document.getElementById("passMatchError").innerText = " Passwords do not match.";
+      valid = false;
+    }
+
+    return valid;
+  }
+</script>
+
+</body>
+</html>
